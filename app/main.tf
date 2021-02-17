@@ -1,7 +1,3 @@
-variable "acr_server" {}
-variable "acr_server_username" {}
-variable "acr_server_password" {}
-
 resource "azurerm_app_service" "app-service-dev" {
   name                = "${var.name}-dev"
   location            = "centralus"

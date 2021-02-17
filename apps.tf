@@ -8,4 +8,8 @@ module "example-html-app" {
   image                    = "htmlex"
   app_settings_dev         = {}
   app_settings_prod        = {}
+
+  acr_server          = var.acr_server
+  acr_server_username = var.acr_server_username
+  acr_server_password = var.acr_server_password
 }

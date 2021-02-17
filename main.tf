@@ -1,5 +1,8 @@
 variable "tenant_id" {}
 variable "subscription_id" {}
+variable "acr_server" {}
+variable "acr_server_username" {}
+variable "acr_server_password" {}
 
 variable "resource_group_dev" {
   default = "dev"

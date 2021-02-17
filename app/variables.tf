@@ -5,6 +5,10 @@ variable "image" {}
 variable "app_settings_dev" {}
 variable "app_settings_prod" {}
 
+variable "acr_server" {}
+variable "acr_server_username" {}
+variable "acr_server_password" {}
+
 # Example app settings
 # {
 #     "DOCKER_REGISTRY_SERVER_URL" = var.acr_server
