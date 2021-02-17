@@ -5,7 +5,7 @@ module "example-html-app" {
   name                     = "example-html-app-setup"
   app_service_plan_id_dev  = azurerm_app_service_plan.dev-serviceplan.id
   app_service_plan_id_prod = azurerm_app_service_plan.prod-serviceplan.id
-  image                    = "htmlex"
+  image                    = "desouza.azurecr.io/htmlex:latest"
   app_settings_dev         = {}
   app_settings_prod        = {}
 
