@@ -12,7 +12,7 @@ resource "azurerm_app_service" "app-service-dev" {
   app_settings = merge(
     var.app_settings_dev,
     {
-      "DOCKER_REGISTRY_SERVER_URL"      = var.acr_server
+      "DOCKER_REGISTRY_SERVER_URL"      = "https://${var.acr_server}"
       "DOCKER_REGISTRY_SERVER_PASSWORD" = var.acr_server_username
       "DOCKER_REGISTRY_SERVER_USERNAME" = var.acr_server_password
       "DOCKER_ENABLE_CI"                = "true"
