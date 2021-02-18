@@ -6,8 +6,8 @@ variable "app_settings_dev" {}
 variable "app_settings_prod" {}
 
 variable "acr_server" {}
-variable "acr_server_username" {}
-variable "acr_server_password" {}
+variable "acr_username" {}
+variable "acr_password" {}
 
 # Example app settings
 # {
