@@ -6,7 +6,7 @@ resource "azurerm_app_service" "app-service-dev" {
 
   site_config {
     always_on        = true
-    linux_fx_version = "DOCKER|${var.image}"
+    linux_fx_version = "DOCKER|${var.image}:latest"
   }
 
   app_settings = merge(
@@ -28,7 +28,7 @@ resource "azurerm_app_service" "app-service-prod" {
 
   site_config {
     always_on        = true
-    linux_fx_version = "DOCKER|${var.image}"
+    linux_fx_version = "DOCKER|${var.image}:prod"
   }
 
   app_settings = merge(

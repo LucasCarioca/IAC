@@ -19,7 +19,7 @@ module "oscars-api" {
   name                     = "oscars-api"
   app_service_plan_id_dev  = azurerm_app_service_plan.dev-serviceplan.id
   app_service_plan_id_prod = azurerm_app_service_plan.prod-serviceplan.id
-  image                    = "desouza.azurecr.io/oscars-api:latest"
+  image                    = "desouza.azurecr.io/oscars-api"
   app_settings_dev = {
     "MONGODB_URL" : var.mongodb_url_dev
     "JWT_SECRET" : random_string.secret-dev.result
@@ -39,7 +39,7 @@ module "oscars-ui" {
   name                     = "oscars-ui"
   app_service_plan_id_dev  = azurerm_app_service_plan.dev-serviceplan.id
   app_service_plan_id_prod = azurerm_app_service_plan.prod-serviceplan.id
-  image                    = "desouza.azurecr.io/oscars-ui:prod"
+  image                    = "desouza.azurecr.io/oscars-ui"
   app_settings_dev         = {}
   app_settings_prod        = {}
 
