@@ -14,6 +14,8 @@ jobs:
       TF_VAR_acr_server: ${{ secrets.TF_VAR_acr_server }}
       TF_VAR_acr_server_username: ${{ secrets.TF_VAR_acr_server_username }}
       TF_VAR_acr_server_password: ${{ secrets.TF_VAR_acr_server_password }}
+      TF_VAR_mongodb_url_dev: ${{ secrets.TF_VAR_mongodb_url_dev }}
+      TF_VAR_mongodb_url_prod: ${{ secrets.TF_VAR_mongodb_url_prod }}
     steps:
     - name: Checkout
       uses: actions/checkout@v2

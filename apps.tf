@@ -39,7 +39,7 @@ module "oscars-ui" {
   name                     = "oscars-ui"
   app_service_plan_id_dev  = azurerm_app_service_plan.dev-serviceplan.id
   app_service_plan_id_prod = azurerm_app_service_plan.prod-serviceplan.id
-  image                    = "desouza.azurecr.io/oscars-ui:latest"
+  image                    = "desouza.azurecr.io/oscars-ui:prod"
   app_settings_dev         = {}
   app_settings_prod        = {}
 
