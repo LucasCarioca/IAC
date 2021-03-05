@@ -40,7 +40,6 @@ resource "azurerm_app_service_plan" "dev-serviceplan" {
   name                = "dev-appserviceplan"
   location            = data.azurerm_resource_group.dev-rg.location
   resource_group_name = data.azurerm_resource_group.dev-rg.name
-  kind                = "Linux"
   reserved            = true
 
   sku {
@@ -53,7 +52,6 @@ resource "azurerm_app_service_plan" "prod-serviceplan" {
   name                = "prod-appserviceplan"
   location            = data.azurerm_resource_group.prod-rg.location
   resource_group_name = data.azurerm_resource_group.prod-rg.name
-  kind                = "Linux"
   reserved            = true
 
   sku {
