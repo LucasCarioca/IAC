@@ -6,7 +6,10 @@ resource "azurerm_app_service" "app-service-dev" {
 
   site_config {
     always_on        = true
-    linux_fx_version = "NODE|12-lts"
+    cors {
+      allowed_origins = var.cors_dev
+      support_credentials = true
+    }
   }
 
   app_settings = merge(
@@ -24,7 +27,10 @@ resource "azurerm_app_service" "app-service-prod" {
 
   site_config {
     always_on        = true
-    linux_fx_version = "NODE|12-lts"
+    cors {
+      allowed_origins = var.cors_prod
+      support_credentials = true
+    }
   }
 
   app_settings = merge(

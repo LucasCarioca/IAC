@@ -34,6 +34,8 @@ resource "azurerm_app_service_plan" "dev-serviceplan" {
   name                = "dev-appserviceplan"
   location            = azurerm_resource_group.dev-rg.location
   resource_group_name = azurerm_resource_group.dev-rg.name
+  kind                = "Linux"
+  reserved            = true
 
   sku {
     tier = "Basic"
@@ -45,6 +47,8 @@ resource "azurerm_app_service_plan" "prod-serviceplan" {
   name                = "prod-appserviceplan"
   location            = azurerm_resource_group.prod-rg.location
   resource_group_name = azurerm_resource_group.prod-rg.name
+  kind                = "Linux"
+  reserved            = true
 
   sku {
     tier = "Basic"

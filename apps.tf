@@ -27,6 +27,8 @@ module "oscars-api" {
     "MONGODB_URL" : var.mongodb_url_prod
     "JWT_SECRET" : random_string.secret-prod.result
   }
+  cors_dev  = ["https://oscars-ui-dev.azurewebsites.com"]
+  cors_prod = ["https://oscars-ui.azurewebsites.com"]
 }
 
 module "oscars-ui" {
@@ -36,4 +38,6 @@ module "oscars-ui" {
   app_service_plan_id_prod = azurerm_app_service_plan.prod-serviceplan.id
   app_settings_dev         = {}
   app_settings_prod        = {}
+  cors_dev                 = []
+  cors_prod                = []
 }
