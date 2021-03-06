@@ -4,14 +4,6 @@ variable "acr_server" {}
 variable "acr_server_username" {}
 variable "acr_server_password" {}
 
-variable "resource_group_dev" {
-  default = "dev"
-}
-
-variable "resource_group_prod" {
-  default = "prod"
-}
-
 variable "resource_group_common" {
   default = "common"
 }
@@ -23,12 +15,14 @@ provider "azurerm" {
   subscription_id = var.subscription_id
 }
 
-data "azurerm_resource_group" "dev-rg" {
-  name = var.resource_group_dev
+resource "azurerm_resource_group" "dev-rg" {
+  name     = "dev"
+  location = "Central US"
 }
 
-data "azurerm_resource_group" "prod-rg" {
-  name = var.resource_group_prod
+resource "azurerm_resource_group" "prod-rg" {
+  name     = "prod"
+  location = "Central US"
 }
 
 data "azurerm_container_registry" "common-acr" {
@@ -38,8 +32,8 @@ data "azurerm_container_registry" "common-acr" {
 
 resource "azurerm_app_service_plan" "dev-serviceplan" {
   name                = "dev-appserviceplan"
-  location            = data.azurerm_resource_group.dev-rg.location
-  resource_group_name = data.azurerm_resource_group.dev-rg.name
+  location            = azurerm_resource_group.dev-rg.location
+  resource_group_name = azurerm_resource_group.dev-rg.name
 
   sku {
     tier = "Basic"
@@ -49,8 +43,8 @@ resource "azurerm_app_service_plan" "dev-serviceplan" {
 
 resource "azurerm_app_service_plan" "prod-serviceplan" {
   name                = "prod-appserviceplan"
-  location            = data.azurerm_resource_group.prod-rg.location
-  resource_group_name = data.azurerm_resource_group.prod-rg.name
+  location            = azurerm_resource_group.prod-rg.location
+  resource_group_name = azurerm_resource_group.prod-rg.name
 
   sku {
     tier = "Basic"
