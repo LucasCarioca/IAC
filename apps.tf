@@ -15,7 +15,7 @@ resource "random_string" "secret-prod" {
 }
 
 module "oscars-api" {
-  source                   = "./app-container-windows"
+  source                   = "./app-container-linux"
   name                     = "oscars-api"
   app_service_plan_id_dev  = azurerm_app_service_plan.dev-serviceplan.id
   app_service_plan_id_prod = azurerm_app_service_plan.prod-serviceplan.id
@@ -35,7 +35,7 @@ module "oscars-api" {
 }
 
 module "oscars-ui" {
-  source                   = "./app-container-windows"
+  source                   = "./app-container-linux"
   name                     = "oscars-ui"
   app_service_plan_id_dev  = azurerm_app_service_plan.dev-serviceplan.id
   app_service_plan_id_prod = azurerm_app_service_plan.prod-serviceplan.id
